@@ -1,0 +1,60 @@
+﻿@using CarRentalProjesi.Models.Entity
+@model List<tbl_Car>
+
+@{
+    ViewBag.Title = "NewCar";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<h1>New Car</h1>
+
+<form class="form-group" method="post">
+    <div>
+        <label>Car Name</label>
+        <input type="text" class="form-control" name="CarName" />
+    </div>
+    <div>
+        <label>Car Model</label>
+        <input type="text" class="form-control" name="CarModel" />
+    </div>
+    <div>
+        <label>Airbag</label>
+        <input type="text" class="form-control" name="Airbag" />
+    </div>
+    <div>
+        <label>Baggage Capacity</label>
+        <input type="text" class="form-control" name="BaggageCapacity" />
+    </div>
+    <div>
+        <label>Current Km</label>
+        <input type="text" class="form-control" name="CurrentKm" />
+    </div>
+    <div>
+        <label>Daily Km Limit</label>
+        <input type="text" class="form-control" name="DailyKmLimit" />
+    </div>
+    <div>
+        <label>Daily Rental Price</label>
+        <input type="text" class="form-control" name="DailyRentalPrice" />
+    </div>
+    <div>
+        <label>Drive Lisense Age</label>
+        <input type="text" class="form-control" name="DriveLisenseAge" />
+    </div>
+    <div>
+        <label>Minimum Age Limit</label>
+        <input type="text" class="form-control" name="MinimumAgeLimit" />
+    </div>
+    <div>
+        <label>Seat Count</label>
+        <input type="text" class="form-control" name="SeatCount" />
+    </div>
+    <div>
+        <button class="btn btn-group" id="btnAddCar"> Add Car </button>
+    </div>
+</form>
+<script>
+    $('#btnAddCar').click(function () {
+        alert('The transaction is successful...');
+    });
+</script>

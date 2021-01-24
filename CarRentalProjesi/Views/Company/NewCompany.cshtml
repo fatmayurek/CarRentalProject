@@ -1,0 +1,42 @@
+﻿@using CarRentalProjesi.Models.Entity
+@model List<tbl_Company>
+
+@{
+    ViewBag.Title = "NewCompany";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<h1>New Company</h1>
+
+<form class="form-group" method="post">
+    <div>
+        <label>Company Name</label>
+        <input type="text" class="form-control" name="CompanyName" required/>
+    </div>
+    <div>
+        <label>Company City</label>
+        <input type="text" class="form-control" name="CompanyCity" required/>
+    </div>
+    <div>
+        <label>Company Address</label>
+        <input type="text" class="form-control" name="CompanyAddress" required/>
+    </div>
+    <div>
+        <label>Car Count</label>
+        <input type="text" class="form-control" name="CarCount" required />
+    </div>
+    <div>
+        <label>CompanyPoint</label>
+        <input type="text" class="form-control" name="CompanyPoint" required />
+    </div>
+
+    <div>
+        <button class="btn btn-group" id="btnAdd"> Add Company </button>       
+    </div>
+</form>
+
+<script>
+    $('#btnAdd').click(function () {
+        alert('The transaction is successful...');
+    });
+</script>

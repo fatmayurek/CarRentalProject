@@ -1,0 +1,84 @@
+﻿@using CarRentalProjesi.Models.Entity
+@model List<tbl_Car>
+
+@{
+    ViewBag.Title = "Cars";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+<h1>Cars Page</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th> Car ID </th>
+        <th> Car Name </th>
+        <th> Car Model </th>
+        <th> Airbag </th>
+        <th> Baggage Capacity </th>
+        <th> Current Km </th>
+        <th> Daily Km Limit </th>
+        <th> Daily Rental Price </th>
+        <th> Driver Lisense Age </th>
+        <th> Minimum Age Limit </th>
+        <th> Seat Count </th>
+    </tr>
+    <tbody>
+        @foreach (var cars in Model)
+        {
+
+        <tr>
+            <td>
+                @cars.CarID
+
+            </td>
+            <td>
+                @cars.CarName
+            </td>
+            <td>
+                @cars.CarModel
+            </td>
+            <td>
+                @cars.Airbag
+            </td>
+            <td>
+                @cars.BaggageCapacity
+
+            </td>
+            <td>
+                @cars.CurrentKm
+
+            </td>
+            <td>
+                @cars.DailyKmLimit
+
+            </td>
+            <td>
+                @cars.DailyRentalPrice
+
+            </td>
+            <td>
+                @cars.DriverLisenseAge
+
+            </td>
+            <td>
+                @cars.MinimumAgeLimit
+
+            </td>
+            <td>
+                @cars.SeatCount
+            </td>
+            <td><a href="/Cars/DeleteCar/@cars.CarID" class="btn btn-danger" id="btnDel">Delete Car</a></td>
+        </tr>
+        @*<td><a href="/Cars/DeleteCar/@cars.CarID" class="btn btn-danger">Delete Car</a></td>*@
+    }
+
+        </tbody>
+    </table>
+<td><a href="/Cars/NewCar/" class="btn btn-warning"><h2>New Car</h2></a></td>
+@*<td><a href="/Cars/DeleteCar/" class="btn btn-warning"><h2>Delete Car</h2></a></td>*@
+
+<script>
+    $('#btnDel').click(function () {
+        alert('The transaction is successful...');
+    });
+</script>
+

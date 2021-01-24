@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CarRentalDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_Car">
+          <Key>
+            <PropertyRef Name="CarID" />
+          </Key>
+          <Property Name="CarID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CarName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CarModel" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DriverLisenseAge" Type="int" Nullable="false" />
+          <Property Name="MinimumAgeLimit" Type="int" Nullable="false" />
+          <Property Name="DailyKmLimit" Type="int" Nullable="false" />
+          <Property Name="CurrentKm" Type="int" Nullable="false" />
+          <Property Name="Airbag" Type="bit" />
+          <Property Name="BaggageCapacity" Type="int" Nullable="false" />
+          <Property Name="SeatCount" Type="int" Nullable="false" />
+          <Property Name="DailyRentalPrice" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Company">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyCity" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CarCount" Type="int" Nullable="false" />
+          <Property Name="CompanyPoint" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Person">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_RentedCar">
+          <Key>
+            <PropertyRef Name="RentedID" />
+          </Key>
+          <Property Name="RentedID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RentDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="DeliveryDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="IsRented" Type="bit" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_RentedCarr">
+          <Key>
+            <PropertyRef Name="RentedID" />
+          </Key>
+          <Property Name="RentedID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RentDate" Type="date" Nullable="false" />
+          <Property Name="DeliveryDate" Type="date" Nullable="false" />
+          <Property Name="IsRented" Type="bit" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserEposta" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CarRentalDBModelStoreContainer">
+          <EntitySet Name="tbl_Car" EntityType="Self.tbl_Car" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Company" EntityType="Self.tbl_Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Person" EntityType="Self.tbl_Person" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_RentedCar" EntityType="Self.tbl_RentedCar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_RentedCarr" EntityType="Self.tbl_RentedCarr" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_User" EntityType="Self.tbl_User" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CarRentalDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_Car">
+          <Key>
+            <PropertyRef Name="CarID" />
+          </Key>
+          <Property Name="CarID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CarName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CarModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverLisenseAge" Type="Int32" Nullable="false" />
+          <Property Name="MinimumAgeLimit" Type="Int32" Nullable="false" />
+          <Property Name="DailyKmLimit" Type="Int32" Nullable="false" />
+          <Property Name="CurrentKm" Type="Int32" Nullable="false" />
+          <Property Name="Airbag" Type="Boolean" />
+          <Property Name="BaggageCapacity" Type="Int32" Nullable="false" />
+          <Property Name="SeatCount" Type="Int32" Nullable="false" />
+          <Property Name="DailyRentalPrice" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Company">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CompanyCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CompanyAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CarCount" Type="Int32" Nullable="false" />
+          <Property Name="CompanyPoint" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Person">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_RentedCar">
+          <Key>
+            <PropertyRef Name="RentedID" />
+          </Key>
+          <Property Name="RentedID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RentDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DeliveryDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsRented" Type="Boolean" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_RentedCarr">
+          <Key>
+            <PropertyRef Name="RentedID" />
+          </Key>
+          <Property Name="RentedID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RentDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DeliveryDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsRented" Type="Boolean" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserEposta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CarRentalDBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_Car" EntityType="Self.tbl_Car" />
+          <EntitySet Name="tbl_Company" EntityType="Self.tbl_Company" />
+          <EntitySet Name="tbl_Person" EntityType="Self.tbl_Person" />
+          <EntitySet Name="tbl_RentedCar" EntityType="Self.tbl_RentedCar" />
+          <EntitySet Name="tbl_RentedCarr" EntityType="Self.tbl_RentedCarr" />
+          <EntitySet Name="tbl_User" EntityType="Self.tbl_User" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CarRentalDBModelStoreContainer" CdmEntityContainer="CarRentalDBEntities1">
+          <EntitySetMapping Name="tbl_Car">
+            <EntityTypeMapping TypeName="CarRentalDBModel.tbl_Car">
+              <MappingFragment StoreEntitySet="tbl_Car">
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="CarName" ColumnName="CarName" />
+                <ScalarProperty Name="CarModel" ColumnName="CarModel" />
+                <ScalarProperty Name="DriverLisenseAge" ColumnName="DriverLisenseAge" />
+                <ScalarProperty Name="MinimumAgeLimit" ColumnName="MinimumAgeLimit" />
+                <ScalarProperty Name="DailyKmLimit" ColumnName="DailyKmLimit" />
+                <ScalarProperty Name="CurrentKm" ColumnName="CurrentKm" />
+                <ScalarProperty Name="Airbag" ColumnName="Airbag" />
+                <ScalarProperty Name="BaggageCapacity" ColumnName="BaggageCapacity" />
+                <ScalarProperty Name="SeatCount" ColumnName="SeatCount" />
+                <ScalarProperty Name="DailyRentalPrice" ColumnName="DailyRentalPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Company">
+            <EntityTypeMapping TypeName="CarRentalDBModel.tbl_Company">
+              <MappingFragment StoreEntitySet="tbl_Company">
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CompanyCity" ColumnName="CompanyCity" />
+                <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+                <ScalarProperty Name="CarCount" ColumnName="CarCount" />
+                <ScalarProperty Name="CompanyPoint" ColumnName="CompanyPoint" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Person">
+            <EntityTypeMapping TypeName="CarRentalDBModel.tbl_Person">
+              <MappingFragment StoreEntitySet="tbl_Person">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_RentedCar">
+            <EntityTypeMapping TypeName="CarRentalDBModel.tbl_RentedCar">
+              <MappingFragment StoreEntitySet="tbl_RentedCar">
+                <ScalarProperty Name="RentedID" ColumnName="RentedID" />
+                <ScalarProperty Name="RentDate" ColumnName="RentDate" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="IsRented" ColumnName="IsRented" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_RentedCarr">
+            <EntityTypeMapping TypeName="CarRentalDBModel.tbl_RentedCarr">
+              <MappingFragment StoreEntitySet="tbl_RentedCarr">
+                <ScalarProperty Name="RentedID" ColumnName="RentedID" />
+                <ScalarProperty Name="RentDate" ColumnName="RentDate" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="IsRented" ColumnName="IsRented" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_User">
+            <EntityTypeMapping TypeName="CarRentalDBModel.tbl_User">
+              <MappingFragment StoreEntitySet="tbl_User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserEposta" ColumnName="UserEposta" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,72 @@
+﻿@using CarRentalProjesi.Models.Entity
+@model List<tbl_Person>
+    @{
+        ViewBag.Title = "NewAccount";
+        Layout = "~/Views/Shared/_mainLayout.cshtml";
+    }
+
+    <h1>New Account Page</h1>
+
+
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <form class="form-horizontal" action='' method="POST">
+        <fieldset>
+            <div id="legend">
+                <legend class="">Register</legend>
+            </div>
+
+
+            <div class="control-group">
+                <!-- E-mail -->
+                <label class="control-label" for="Name">Name</label>
+                <div class="controls">
+                    <input type="text" id="Name" name="Name" placeholder="Please provide your name" class="input-xlarge"required>
+                   
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Password-->
+                <label class="control-label" for="Surname">Surname</label>
+                <div class="controls">
+                    <input type="text" id="Surname" name="Surname" placeholder="Please provide your surname" class="input-xlarge"required>
+               
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Username -->
+                <label class="control-label" for="Username">Username</label>
+                <div class="controls">
+                    <input type="text" id="Username" name="Username" placeholder="Username can contain any letters or numbers, without spaces" class="input-xlarge" required>
+                   
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Password -->
+                <label class="control-label" for="Password">Password</label>
+                <div class="controls">
+                    <input type="password" id="Password" name="Password" placeholder="Please provide your password" class="input-xlarge" required>
+                  
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Button -->
+                <div class="controls">
+                    <button class="btn btn-success" id="btnReg">Register</button>
+                </div>
+            </div>
+        </fieldset>
+      
+    </form>
+    <script>
+        //$('#btnReg').click(function () {
+        //    alert('The transaction is successful...');
+        //});
+    </script>

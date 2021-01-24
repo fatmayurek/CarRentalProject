@@ -1,0 +1,115 @@
+DATABASE NAME --> CarRentalDB
+
+
+
+
+CREATE TABLE [dbo].[tbl_Company](
+	[CompanyID] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyName] [nvarchar](50) NOT NULL,
+	[CompanyCity] [nvarchar](50) NOT NULL,
+	[CompanyAddress] [nvarchar](50) NOT NULL,
+	[CarCount] [int] NOT NULL,
+	[CompanyPoint] [int] NOT NULL,
+ CONSTRAINT [PK_tbl_Company] PRIMARY KEY CLUSTERED 
+(
+	[CompanyID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+CREATE TABLE [dbo].[tbl_User](
+	[UserID] [int] IDENTITY(1,1) NOT NULL,
+	[UserEposta] [nvarchar](50) NOT NULL,
+	[UserPassword] [nvarchar](50) NOT NULL,	
+ CONSTRAINT [PK_tbl_User] PRIMARY KEY CLUSTERED 
+(
+	[UserID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)  ON [PRIMARY]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+CREATE TABLE [dbo].[tbl_RentedCar](
+	[RentedID] [int] IDENTITY(1,1) NOT NULL,	
+	[RentDate] [smalldatetime] NOT NULL,
+	[DeliveryDate] [smalldatetime] NOT NULL,
+	[IsRented] [bit] NOT NULL,
+	[Price] [int] NOT NULL,
+	[CustomerID] [int] NOT NULL,
+ CONSTRAINT [PK_tbl_RentedCar] PRIMARY KEY CLUSTERED 
+(
+	[RentedID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE TABLE [dbo].[tbl_RentedCarr](
+	[RentedID] [int] IDENTITY(1,1) NOT NULL,	
+	[RentDate] [date] NOT NULL,
+	[DeliveryDate] [date] NOT NULL,
+	[IsRented] [bit] NOT NULL,
+	[Price] [int] NOT NULL,
+	[CustomerID] [int] NOT NULL,
+ CONSTRAINT [PK_tbl_RentedCarr] PRIMARY KEY CLUSTERED 
+(
+	[RentedID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[tbl_Car](
+	[CarID] [int] IDENTITY(1,1) NOT NULL,
+	[CarName] [nvarchar](50) NOT NULL,
+	[CarModel] [nvarchar](50) NOT NULL,
+	[DriverLisenseAge] [int] NOT NULL,
+	[MinimumAgeLimit] [int] NOT NULL,
+	[DailyKmLimit] [int] NOT NULL,
+	[CurrentKm] [int] NOT NULL,
+	[Airbag] [bit] NULL,
+	[BaggageCapacity] [int] NOT NULL,
+	[SeatCount] [int] NOT NULL,		
+	[DailyRentalPrice] [int] NOT NULL,
+ CONSTRAINT [PK_tbl_Car] PRIMARY KEY CLUSTERED 
+(
+	[CarID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+
+CREATE TABLE [dbo].[tbl_Person](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[Surname] [nvarchar](50) NOT NULL,
+	[Username] [nvarchar](50) NOT NULL,
+	[Password] [nvarchar] NOT NULL,	
+ CONSTRAINT [PK_tbl_Person] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+

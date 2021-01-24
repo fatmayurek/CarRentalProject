@@ -1,0 +1,39 @@
+﻿@using CarRentalProjesi.Models.Entity
+@model List<tbl_Person>
+@{
+    ViewBag.Title = "Person";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<h1>Person Page</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th> ID </th>
+        <th> Name </th>
+        <th> Surname </th>
+        <th> Username </th>
+
+
+    </tr>
+    <tbody>
+        @foreach (var person in Model)
+        {
+            <tr>
+                <td>
+                    @person.ID
+                </td>
+                <td>
+                    @person.Name
+                </td>
+                <td>
+                    @person.Surname
+                </td>
+                <td>
+                    @person.Username
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

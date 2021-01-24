@@ -1,0 +1,47 @@
+﻿@using CarRentalProjesi.Models.Entity
+@model List<tbl_Company>
+
+@{
+    ViewBag.Title = "Company";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<h1>COMPANY PAGE</h1>
+<table class="table table-bordered">
+    <tr>
+        <th> Company ID </th>
+        <th> Company Name </th>
+        <th> Company City </th>
+        <th> Company Address </th>
+        <th> Car Count </th>
+        <th> Company Point</th>
+
+    </tr>
+    <tbody>
+        @foreach (var company in Model)
+        {
+        <tr>
+            <td>
+                @company.CompanyID
+            </td>
+            <td>
+                @company.CompanyName
+            </td>
+            <td>
+                @company.CompanyCity
+            </td>
+            <td>
+                @company.CompanyAddress
+            </td>
+            <td>
+                @company.CarCount
+            </td>
+            <td>
+                @company.CompanyPoint
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<td><a href="/Company/NewCompany/" class="btn btn-warning"><h2>New Company</h2></a></td>
+

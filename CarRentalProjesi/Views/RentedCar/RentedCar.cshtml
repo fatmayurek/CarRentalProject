@@ -1,0 +1,70 @@
+﻿@using CarRentalProjesi.Models.Entity
+@model List<tbl_RentedCar>
+@{
+    ViewBag.Title = "RentedCar";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+    <form class="form-group" method="post">
+       
+        <div>
+            <label>Rent Date</label>
+            <input type="datetime-local" class="form-control" name="RentDate" />
+        </div>
+        @*Normalde datetime-local kullanıp saatli yapmayı düşündüm.*@
+        <div>
+            <label>Delivery Date</label>
+            <input type="datetime-local" class="form-control" name="DeliveryDate" />
+        </div>
+        <div>
+            <label>Is Rented</label>
+            <input type="text" class="form-control" name="IsRented" />
+        </div>
+        <div>
+            <label>Price</label>
+            <input type="text" class="form-control" name="Price" />
+        </div>
+        <div>
+            <label>Customer ID</label>
+            <input type="text" class="form-control" name="CustomerID" />
+        </div>
+        <div>
+            <button class="btn btn-default"> Rent Car </button>
+        </div>
+    </form>
+
+<div class="col-sm-8">
+    <table class="table">
+        <tr>
+            <th> Rent Date </th>
+            <th> Delivery Date </th>
+            <th> Is Rented </th>
+            <th> Price </th>
+            <th> Customer ID </th>
+        </tr>
+        <tbody>
+            @foreach (var rentedCars in Model)
+            {
+                <tr>
+                    <th>
+                        @rentedCars.RentDate
+                    </th>
+                    <th>
+                        @rentedCars.DeliveryDate
+                    </th>
+                    <th>
+                       @rentedCars.IsRented
+                        
+                    </th>
+                    <th>
+                        @rentedCars.Price
+                    </th>
+                    <th>
+                        @rentedCars.CustomerID
+                    </th>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
